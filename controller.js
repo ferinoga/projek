@@ -1,15 +1,15 @@
 'use strict';
 
 var response = require ('./res');
-var connection = require('./index');
+var connection = require('./koneksi');
 
 exports.index =function(req,res){
-    response.ok("Aplikasi REST API ku berjalan!",res)
+    response.ok("Aplikasi REST API ku berjalan! waw",res)
 };
 
 //menampilkan semua data siswa
-exports.tampilsemuatbl_user = function(req,res){
-    connection.query('SELECT * FROM tbl_user',function(error, rows, fileds){
+exports.tampilsemuatbl_userr = function(req,res){
+    connection.query('SELECT * FROM tbl_userr',function(error, rows, fileds){
         if(error){
             console.log(error);
         }else {
@@ -18,10 +18,10 @@ exports.tampilsemuatbl_user = function(req,res){
     });
 };
 
-//menampilkan semua data siswa berdasarkan id
+//menampilkan semua data user berdasarkan id
 exports.tampilberdasarkanid = function(req,res){
     let id = req.params.id;
-    connection.query('SELECT * FROM tbl_user WHERE id_tbl_user = ?', [id],
+    connection.query('SELECT * FROM tbl_userr WHERE id_tbl_userr = ?', [id],
         function(error, rows, fileds){
             if(error){
                 console.log(error);
@@ -33,7 +33,7 @@ exports.tampilberdasarkanid = function(req,res){
 };
 
 
-//menambahkan data siswa
+//menambahkan data user
 exports.tambahtbl_userr = function(req,res){
     var username = req.body.username;
     var password = req.body.password;
@@ -67,7 +67,7 @@ exports.ubahtbl_userr = function(req,res){
     var email = req.body.email;
     var HP = req.body.HP;
 
-    connection.query('UPDATE tbl_userr SET username=?, password=?, name=?, role=?, alamat=?, email=?, HP=? WHERE id_user=?',[username,password,name,role,alamat,email,HP],
+    connection.query('UPDATE tbl_userr SET username=?, password=?, name=?, role=?, alamat=?, email=?, HP=? WHERE id_tbl_user=?',[username,password,name,role,alamat,email,HP],
         function(error, rows, fields){
             if(error){
                 console.log(error);
@@ -80,8 +80,8 @@ exports.ubahtbl_userr = function(req,res){
 
 //menghapus data berdasarkan id
 exports.hapustbl_userr = function(req,res){
-    var id = req.body.id_user;
-    connection.query('DELETE FROM tbl_userr WHERE id_user=?',[id],
+    var id = req.body.id_tbl_user;
+    connection.query('DELETE FROM tbl_userr WHERE id_tbl_user=?',[id],
     function(error, rows, fields){
         if(error) {
             console.log(error);

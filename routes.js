@@ -2,22 +2,22 @@
 
 module.exports = function(app){
     var jsonku = require('./controller');
-    
+
     app.route('/')
         .get(jsonku.index);
 
         app.route('/tampil')
-            .get(jsonku.tampilsemuasiswa);
+            .get(jsonku.tampilsemuatbl_userr);
 
          app.route('/tampil/:id')
          .get(jsonku.tampilberdasarkanid);
 
          app.route('/tambah')
-         .post(jsonku.tambahsiswa);
+         .post(jsonku.tambahtbl_userr);
          
          app.route('/ubah')
-         .put(jsonku.ubahsiswa);
+         .put(jsonku.ubahtbl_userr);
 
          app.route('/hapus')
-         .delete(jsonku.hapussiswa);
+         .delete(jsonku.hapustbl_userr);
     }

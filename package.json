@@ -18,5 +18,11 @@
   "bugs": {
     "url": "https://github.com/ferinoga/projek/issues"
   },
-  "homepage": "https://github.com/ferinoga/projek#readme"
+  "homepage": "https://github.com/ferinoga/projek#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1"
+  }
 }
